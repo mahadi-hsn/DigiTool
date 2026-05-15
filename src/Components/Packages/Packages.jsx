@@ -4,8 +4,15 @@ import Products from "../Products/Products";
 
 const Packages = ({ packageResponse }) => {
   const packageData = use(packageResponse);
-
   const [selectedTab, setSelectedTab] = useState("products");
+
+
+  const [cart, setCart] = useState([]);
+  const handleCart = (pkg) => {
+    const newCart = [...cart, pkg];
+    setCart(newCart);
+  };
+
 
   return (
     <div className="w-10/12 mx-auto my-36">
@@ -19,7 +26,7 @@ const Packages = ({ packageResponse }) => {
         <div className="p-2 border border-[#e7e7e7] rounded-full flex gap-4 bg-white">
           <button
             onClick={() => setSelectedTab("products")}
-            className={`rounded-full ${
+            className={`rounded-full cursor-pointer ${
               selectedTab === "products"
                 ? "text-white px-5 py-2 bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35)]"
                 : "text-[#2b0f66] bg-transparent"
@@ -30,21 +37,21 @@ const Packages = ({ packageResponse }) => {
 
           <button
             onClick={() => setSelectedTab("cart")}
-            className={`rounded-full ${
+            className={`rounded-full cursor-pointer ${
               selectedTab === "cart"
                 ? "text-white px-5 py-2 bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35)]"
                 : "text-[#2b0f66] bg-transparent"
             }`}
           >
-            Cart (2)
+            Cart {(cart.length)}
           </button>
         </div>
       </div>
 
       {selectedTab === "products" ? (
-        <Products packageData={packageData}></Products>
+        <Products handleCart={handleCart} packageData={packageData}></Products>
       ) : (
-        <Cart></Cart>
+        <Cart cart={cart} setCart={setCart}></Cart>
       )}
     </div>
   );
