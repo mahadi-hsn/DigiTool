@@ -1,9 +1,12 @@
-import { use } from "react";
-import PackageCard from "./PackageCard";
+import { use, useState } from "react";
+import Cart from "../Cart/Cart";
+import Products from "../Products/Products";
 
 const Packages = ({ packageResponse }) => {
   const packageData = use(packageResponse);
-  console.log(packageData);
+
+  const [selectedTab, setSelectedTab] = useState("products");
+
   return (
     <div className="w-10/12 mx-auto my-36">
       <div className="flex flex-col gap-5 items-center text-center my-10">
@@ -12,16 +15,37 @@ const Packages = ({ packageResponse }) => {
           Choose from our curated collection of premium digital products
           designed <br /> boost your productivity and creativity.
         </p>
-        <div>
-          <button className="btn">Products</button>
-          <button className="btn">Cart</button>
+
+        <div className="p-2 border border-[#e7e7e7] rounded-full flex gap-4 bg-white">
+          <button
+            onClick={() => setSelectedTab("products")}
+            className={`rounded-full ${
+              selectedTab === "products"
+                ? "text-white px-5 py-2 bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35)]"
+                : "text-[#2b0f66] bg-transparent"
+            }`}
+          >
+            Products
+          </button>
+
+          <button
+            onClick={() => setSelectedTab("cart")}
+            className={`rounded-full ${
+              selectedTab === "cart"
+                ? "text-white px-5 py-2 bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35)]"
+                : "text-[#2b0f66] bg-transparent"
+            }`}
+          >
+            Cart (2)
+          </button>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-y-10">
-        {packageData.map((packages) => (
-          <PackageCard key={packages.id} pkg={packages}></PackageCard>
-        ))}
-      </div>
+
+      {selectedTab === "products" ? (
+        <Products packageData={packageData}></Products>
+      ) : (
+        <Cart></Cart>
+      )}
     </div>
   );
 };

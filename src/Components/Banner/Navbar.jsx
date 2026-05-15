@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="">
           <a
             href="/digitools"
-            className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-violet-500 to-[#9515fa]"
+            className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-[#5f2df5] to-[#a10df5]"
           >
             DigiTools
           </a>
@@ -40,7 +40,7 @@ const Navbar = () => {
             <a href="/login">Log In</a>
           </span>
           <span>
-            <a className="btn bg-linear-to-r from-violet-500 to-[#9515fa] text-white py-2 px-4 rounded-full">Get Started</a>
+            <a className="btn bg-linear-to-r from-[#5f2df5] to-[#a10df5] text-white rounded-full">Get Started</a>
           </span>
         </div>
       </div>

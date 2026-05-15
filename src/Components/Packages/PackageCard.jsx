@@ -14,14 +14,14 @@ const PackageCard = ({ pkg }) => {
                 <img className='w-full' src={icon} alt="" />
             </div>
             <h2 className="text-2xl font-bold">{title}</h2>
-            <p>{description}</p>
-            <span className="text-xl"><span className='font-bold'>${price}</span>/{billing}</span>
+            <p className='opacity-50'>{description}</p>
+            <span className="text-xl"><span className='font-bold'>${price}</span>/ <span className='opacity-60'>{billing}</span> </span>
           </div>
           <ul className="mt-6 flex flex-col gap-2 text-xs">
-            {features.map(feature => <li className='flex items-center gap-3'><Check />{feature}</li>)}
+            {features.map(feature => <li className='flex items-center gap-3'><Check className='text-[#31b968]' />{feature}</li>)}
           </ul>
           <div className="mt-6">
-            <button className="btn btn-primary btn-block rounded-full">Buy Now</button>
+            <button className="btn w-full bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35) text-white rounded-full">Buy Now</button>
           </div>
         </div>
       </div>
