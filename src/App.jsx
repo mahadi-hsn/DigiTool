@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import "./App.css";
 import Navbar from "./Components/Banner/Navbar";
 import Packages from "./Components/Packages/Packages";
+import Steps from "./Components/Steps/Steps";
 
 const packageResponse = fetch("toolPackages.json").then((res) => res.json());
 
@@ -18,6 +19,7 @@ function App() {
           <Packages packageResponse={packageResponse}></Packages>
         </Suspense>
       </div>
+      <Steps></Steps>
     </>
   );
 }

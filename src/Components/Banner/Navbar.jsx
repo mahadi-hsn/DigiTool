@@ -33,18 +33,26 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-5">
-          <span>
-            <ShoppingCart></ShoppingCart>
-          </span>
+          <div>
+            <span>
+              <ShoppingCart></ShoppingCart>
+            </span>
+          </div>
           <span>
             <a href="/login">Log In</a>
           </span>
           <span>
-            <a className="btn bg-linear-to-r from-[#5f2df5] to-[#a10df5] text-white rounded-full">Get Started</a>
+            <a className="btn bg-linear-to-r from-[#5f2df5] to-[#a10df5] text-white rounded-full">
+              Get Started
+            </a>
           </span>
         </div>
       </div>
+      
       <Hero></Hero>
+      <div className="absolute top-4.5 right-78.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-red-400 text-xs font-semibold text-white">
+        <p>1</p>
+      </div>
     </div>
   );
 };

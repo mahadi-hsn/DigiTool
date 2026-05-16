@@ -11,7 +11,7 @@ const PackageCard = ({ pkg, handleCart }) => {
   };
   return (
     <div className="">
-      <div className="card w-96 bg-base-100 shadow-2xl">
+      <div className="card w-96 rounded-lg bg-white shadow-lg">
         <div className="card-body">
           <span className={`absolute top-2 right-3 px-3 rounded-full ${
           badge === "Popular"
