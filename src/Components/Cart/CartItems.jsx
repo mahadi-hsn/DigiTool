@@ -1,5 +1,5 @@
 const CartItems = ({ cartItem, cart, setCart }) => {
-  const { title, price, icon, features, description, billing, badge } =
+  const { title, price, icon} =
     cartItem;
 
   const handleDeleteCart = () => {

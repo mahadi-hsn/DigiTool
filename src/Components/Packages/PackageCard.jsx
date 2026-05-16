@@ -13,7 +13,18 @@ const PackageCard = ({ pkg, handleCart }) => {
     <div className="">
       <div className="card w-96 bg-base-100 shadow-2xl">
         <div className="card-body">
-          <span className="badge badge-xs badge-warning absolute top-2 right-3">
+          <span className={`absolute top-2 right-3 px-3 rounded-full ${
+          badge === "Popular"
+            ? "bg-purple-100 text-white"
+
+            : badge === "New"
+            ? "bg-green-100 text-green-600"
+
+            : badge === "Best Seller"
+            ? "bg-orange-100 text-orange-600"
+
+            : "bg-gray-100 text-gray-600"
+        }}`}>
             {badge}
           </span>
           <div className="space-y-3">
