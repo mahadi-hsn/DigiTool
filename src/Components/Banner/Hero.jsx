@@ -46,6 +46,35 @@ const Hero = () => {
           <img src={bannerImage} alt={"Banner image"} />
         </div>
       </div>
+
+
+      <div className="bg-linear-to-r from-[#5f2df5] to-[#a10df5]">
+
+
+        <div className="w-10/12 mx-auto flex py-15 items-center">
+
+          <div className="text-white space-y-3 text-center flex-1">
+            <h1 className="text-5xl font-bold">50K+</h1>
+            <p className="opacity-80">Active Users</p>
+          </div>
+          
+          <div className="text-white space-y-3 text-center border-l border-white/30 flex-1">
+            <h1 className="text-5xl font-bold">200+</h1>
+            <p className="opacity-80">Premium Tools</p>
+          </div>
+
+          <div className="text-white space-y-3 text-center border-l border-white/30 flex-1">
+            <h1 className="text-5xl font-bold">4.9</h1>
+            <p className="opacity-80">Rating</p>
+          </div>
+          
+        </div>
+
+
+      </div>
+
+
+
     </div>
   );
 };

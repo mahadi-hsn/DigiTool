@@ -3,8 +3,11 @@ import "./App.css";
 import Navbar from "./Components/Banner/Navbar";
 import Packages from "./Components/Packages/Packages";
 import Steps from "./Components/Steps/Steps";
+import Pricing from "./Components/Pricing/Pricing";
 
 const packageResponse = fetch("toolPackages.json").then((res) => res.json());
+const pricingResponse = fetch("pricingData.json").then((res) => res.json());
+
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
         </Suspense>
       </div>
       <Steps></Steps>
+      <Pricing pricingResponse={pricingResponse}></Pricing>
     </>
   );
 }
