@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import CartItems from "./CartItems";
 
 const Cart = ({ cart, setCart }) => {
@@ -7,9 +8,14 @@ const Cart = ({ cart, setCart }) => {
     0,
   );
 
-  const handleProceedToCheckout = () =>{
+  const handleProceedToCheckout = () => {
     setCart([]);
-  }
+    if (cart.length === 0) {
+      toast.error("No item is in cart!");
+    } else {
+      toast.success("Your purchase is completed!");
+    }
+  };
 
   return (
     <div className="border rounded-lg p-5">

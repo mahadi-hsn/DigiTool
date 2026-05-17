@@ -5,6 +5,7 @@ import Packages from "./Components/Packages/Packages";
 import Steps from "./Components/Steps/Steps";
 import Pricing from "./Components/Pricing/Pricing";
 import Footer from "./Components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 const packageResponse = fetch("toolPackages.json").then((res) => res.json());
 const pricingResponse = fetch("pricingData.json").then((res) => res.json());
@@ -33,6 +34,8 @@ function App() {
       <footer>
         <Footer></Footer>
       </footer>
+
+      <ToastContainer></ToastContainer>
     </>
   );
 }
