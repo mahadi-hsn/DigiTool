@@ -2,6 +2,9 @@ import { use, useState } from "react";
 import Cart from "../Cart/Cart";
 import Products from "../Products/Products";
 
+
+
+
 const Packages = ({ packageResponse , cartCount , setCartCounts}) => {
   const packageData = use(packageResponse);
   const [selectedTab, setSelectedTab] = useState("products");
@@ -47,6 +50,8 @@ const Packages = ({ packageResponse , cartCount , setCartCounts}) => {
           </button>
         </div>
       </div>
+
+      
 
       {selectedTab === "products" ? (
         <Products handleCart={handleCart} packageData={packageData} cartCount={cartCount} ></Products>
