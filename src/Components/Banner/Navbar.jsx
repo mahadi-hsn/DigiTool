@@ -1,7 +1,8 @@
 import { ShoppingCart } from "lucide-react";
 import Hero from "./Hero";
 
-const Navbar = () => {
+const Navbar = ({cartCounts}) => {
+  console.log(cartCounts);
   return (
     <div>
       <div className="flex justify-around items-center bg-base-100 shadow-sm py-5">
@@ -51,7 +52,7 @@ const Navbar = () => {
       
       <Hero></Hero>
       <div className="absolute top-4.5 right-78.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-red-400 text-xs font-semibold text-white">
-        <p>1</p>
+        <p>{cartCounts.length}</p>
       </div>
     </div>
   );

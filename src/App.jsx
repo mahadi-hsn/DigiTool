@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Navbar from "./Components/Banner/Navbar";
 import Packages from "./Components/Packages/Packages";
@@ -11,10 +11,17 @@ const packageResponse = fetch("toolPackages.json").then((res) => res.json());
 const pricingResponse = fetch("pricingData.json").then((res) => res.json());
 
 function App() {
+  const [cartCounts, setCartCounts] = useState([]);
+
+  const cartCount = (pkg) => {
+    const newCount = [...cartCounts , pkg];
+    setCartCounts(newCount);
+  };
+
   return (
     <>
       <header>
-        <Navbar></Navbar>
+        <Navbar cartCounts={cartCounts}></Navbar>
       </header>
 
       <main>
@@ -24,7 +31,7 @@ function App() {
               <span className="loading loading-infinity loading-xl"></span>
             }
           >
-            <Packages packageResponse={packageResponse}></Packages>
+            <Packages packageResponse={packageResponse} cartCount={cartCount} setCartCounts={setCartCounts}></Packages>
           </Suspense>
         </div>
         <Steps></Steps>

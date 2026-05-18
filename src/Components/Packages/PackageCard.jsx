@@ -2,14 +2,15 @@ import { Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const PackageCard = ({ pkg, handleCart }) => {
-  const [selected, setSelected] = useState(false);
+const PackageCard = ({ pkg, handleCart, cartCount }) => {
   const { title, price, icon, features, description, billing, badge } = pkg;
-
+  const [selected, setSelected] = useState(false);
+ 
   const handleBuyNowButton = () => {
     setSelected(true);
     handleCart(pkg);
     toast.info(title + " is selected!");
+    cartCount(pkg);
   };
   return (
     <div className="">
@@ -35,8 +36,8 @@ const PackageCard = ({ pkg, handleCart }) => {
             <h2 className="text-2xl font-bold">{title}</h2>
             <p className="opacity-50">{description}</p>
             <span className="text-xl">
-              <span className="font-bold">${price}</span>/{" "}
-              <span className="opacity-60">{billing}</span>{" "}
+              <span className="font-bold">${price}</span>/
+              <span className="opacity-60">{billing}</span>
             </span>
           </div>
           <ul className="mt-6 flex flex-col gap-2 text-xs">
@@ -50,6 +51,7 @@ const PackageCard = ({ pkg, handleCart }) => {
           <div className="mt-6">
             <button
               onClick={() => handleBuyNowButton()}
+              disabled={selected}
               className={`${selected ? "btn w-full bg-green-400 shadow-[0_10px_25px_rgba(106,44,240,0.35) text-white rounded-full" : "btn w-full bg-linear-to-r from-[#5f2df5] to-[#a10df5] shadow-[0_10px_25px_rgba(106,44,240,0.35) text-white rounded-full"}`}
             >
               Buy Now

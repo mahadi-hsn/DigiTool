@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import CartItems from "./CartItems";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({ cart, setCart , setCartCounts}) => {
   console.log(cart);
   const totalPrice = cart.reduce(
     (total, item) => total + Number(item.price || 0),
@@ -10,6 +10,7 @@ const Cart = ({ cart, setCart }) => {
 
   const handleProceedToCheckout = () => {
     setCart([]);
+    setCartCounts([]);
     if (cart.length === 0) {
       toast.error("No item is in cart!");
     } else {
@@ -26,6 +27,7 @@ const Cart = ({ cart, setCart }) => {
           setCart={setCart}
           key={cartItem.id}
           cartItem={cartItem}
+          setCartCounts={setCartCounts}
         ></CartItems>
       ))}
       <div className="flex justify-between px-3 py-5 mb-5 rounded-lg bg-slate-100 font-bold text-xl">

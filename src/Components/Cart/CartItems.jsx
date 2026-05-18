@@ -1,12 +1,13 @@
 import { toast } from "react-toastify";
 
-const CartItems = ({ cartItem, cart, setCart }) => {
+const CartItems = ({ cartItem, cart, setCart  , setCartCounts}) => {
   const { title, price, icon} =
     cartItem;
 
   const handleDeleteCart = () => {
     const filteredCart = cart.filter((item) => item.title != title);
     setCart(filteredCart);
+    setCartCounts(filteredCart)
     toast.error(title + " is removed!");
   };
   return (

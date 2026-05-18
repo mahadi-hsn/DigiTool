@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 
 const PriceCard = ({ pricing }) => {
-  console.log(pricing);
 
   const { billing, buttonText, description, plan, popular, price, features } =
     pricing;
