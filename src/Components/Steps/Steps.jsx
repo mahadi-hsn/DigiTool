@@ -3,7 +3,7 @@ import packageImage from "../../assets/package.png";
 import rocketImage from "../../assets/rocket.png";
 const Steps = () => {
   return (
-    <div className="bg-slate-100 p-16">
+    <div className="bg-slate-100 p-16 w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]">
       <div className="w-10/12 mx-auto space-y-10">
         <div className="text-center">
           <h1 className="text-5xl mb-4 font-bold">Get Started in 3 Steps</h1>
